@@ -3,9 +3,8 @@ def sort_by_insertion(l):
         # add key into the sorted senquence l[0:i]
         j = i - 1
         while j >= 0 and key < l[j]:
-            l[j+1] = l[j]
             j -= 1
-        l[j+1] = key
+        l.insert(j+1, l.pop(i))
     return l
 
 
