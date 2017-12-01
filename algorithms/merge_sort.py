@@ -15,7 +15,7 @@ def merge(l0, p, q, r):
 
 
 def merge_sort(l, p, r):
-    if r - p >= 2:
+    if r - p > 1:
         q = int((p + r) / 2)
         merge_sort(l, p, q)
         merge_sort(l, q, r)
@@ -23,8 +23,7 @@ def merge_sort(l, p, r):
 
 
 if __name__ == "__main__":
-    if __name__ == "__main__":
-        _input = [3, 4, 5, 7, 11, 233, 5677, 8, 34, 56, 7]
-        print("input: ", _input)
-        merge_sort(_input, 0, len(_input))
-        print("output: ", _input)
+    _input = [3, 4, 5, 7, 11, 233, 5677, 8, 34, 56, 7]
+    print("input: ", _input)
+    merge_sort(_input, 0, len(_input))
+    print("output: ", _input)
