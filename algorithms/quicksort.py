@@ -1,3 +1,4 @@
+import random
 def _swap(l, i, j):
     temp = l[i]
     l[i] = l[j]
@@ -25,8 +26,14 @@ def partition(l, p, r):
     return i
 
 
+def randomized_quicksort(l, p, r):
+    pivot_index = random.randint(p,r)
+    _swap(l, pivot_index, r)
+    quicksort(l, p, r)
+
+
 if __name__ == "__main__":
     l = [3, 7, 4, 5, 11, 233, 5677, 8, 34, 56, 6]
     print(l)
-    quicksort(l, 0, len(l)-1)
+    randomized_quicksort(l, 0, len(l)-1)
     print(l)
