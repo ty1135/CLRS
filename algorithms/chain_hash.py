@@ -7,12 +7,20 @@ import random
 
 
 def chained_hash_func(x):
-    return x % 100
+    # division method
+    # choose a prime around m
+    return x % 103
 
+def chained_hash_func_alternative(x):
+    # multiplication method
+    constant = (5 ** 0.5 - 1) / 2
+    fraction = x * constant - int(x * constant)
+    return int(fraction * 103) # normally m 103 is chose to be power of 2 instead of 103
 
 def chained_hash_insert(table, x):
     # suppose x itself is the key
-    slot = chained_hash_func(x)
+    #slot = chained_hash_func(x)
+    slot = chained_hash_func_alternative(x)
     table[slot].append(x)
 
 
@@ -28,9 +36,9 @@ def chained_hash_search(table, x):
 
 
 if __name__ == "__main__":
-    table = [[] for x in range(100)]
+    table = [[] for x in range(104)]
 
-    for x in [random.randint(0, 100) for x in range(200)]:
+    for x in [random.randint(0, 10000) for x in range(200)]:
         chained_hash_insert(table, x)
 
     for x in table:
